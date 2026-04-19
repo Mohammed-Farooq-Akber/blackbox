@@ -1,0 +1,1936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signature Secure USA | Austin's Premier Apostille & Document Services</title>
+    <meta name="description" content="Austin's premier partner for expedited document authentication, hand-carry apostille services, mobile ink-rolled fingerprinting, and FBI background checks. Serving all major Texas metros.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%231a2744'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-weight='bold' font-size='28' fill='%23c9a84c' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Lato:wght@300;400;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== CSS VARIABLES ===== */
+        :root {
+            --navy: #1a2744;
+            --navy-deep: #0d1729;
+            --navy-mid: #243660;
+            --gold: #c9a84c;
+            --gold-light: #e8c96d;
+            --gold-pale: #f5e6b8;
+            --white: #f7f5f0;
+            --text-muted: rgba(247, 245, 240, 0.7);
+            --border-subtle: rgba(201, 168, 76, 0.15);
+            --card-bg: rgba(26, 39, 68, 0.6);
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Lato', sans-serif;
+            --font-ui: 'Montserrat', sans-serif;
+        }
+
+        /* ===== RESET & BASE ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.7;
+            color: var(--white);
+            background: var(--navy-deep);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes goldShimmer {
+            0% { background-position: -400px 0; }
+            100% { background-position: 400px 0; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-8px) rotate(0.5deg); }
+            66% { transform: translateY(-4px) rotate(-0.5deg); }
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes stampIn {
+            0% { opacity: 0; transform: scale(1.4) rotate(-5deg); }
+            60% { opacity: 1; transform: scale(0.92) rotate(1deg); }
+            80% { transform: scale(1.03) rotate(-0.5deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+
+        @keyframes sealRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulseGold {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.4); }
+            50% { box-shadow: 0 0 0 12px rgba(201, 168, 76, 0); }
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { border-color: rgba(201, 168, 76, 0.3); }
+            50% { border-color: rgba(201, 168, 76, 0.8); }
+        }
+
+        @keyframes mapPing {
+            0% { transform: scale(0.8); opacity: 1; }
+            100% { transform: scale(2.5); opacity: 0; }
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--navy-deep); }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, var(--gold), var(--navy-mid));
+            border-radius: 4px;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            background: rgba(13, 23, 41, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 10px 0;
+            background: rgba(13, 23, 41, 0.97);
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        /* SVG Seal Logo */
+        .nav-seal {
+            width: 44px;
+            height: 44px;
+            flex-shrink: 0;
+        }
+
+        .nav-brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav-brand-name {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-brand-tagline {
+            font-family: var(--font-ui);
+            font-size: 0.62rem;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: var(--font-ui);
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover { color: var(--gold); }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--gold) 0%, #a8893a 100%);
+            color: var(--navy-deep) !important;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-weight: 700 !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(201, 168, 76, 0.35);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 120px 24px 80px;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 70% 50%, rgba(36, 54, 96, 0.6) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 40% at 15% 80%, rgba(201, 168, 76, 0.08) 0%, transparent 60%),
+                linear-gradient(160deg, var(--navy-deep) 0%, #0a1520 40%, #1a2744 100%);
+        }
+
+        /* Decorative Texas outline SVG background */
+        .hero-texas-bg {
+            position: absolute;
+            right: -60px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 580px;
+            height: 580px;
+            opacity: 0.04;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        /* Grid lines */
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(201, 168, 76, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(201, 168, 76, 0.04) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        .hero-content {
+            max-width: 680px;
+            z-index: 2;
+            position: relative;
+            animation: slideInUp 0.9s ease forwards;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(201, 168, 76, 0.1);
+            border: 1px solid rgba(201, 168, 76, 0.35);
+            padding: 6px 16px;
+            border-radius: 2px;
+            font-family: var(--font-ui);
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .hero-badge::before {
+            content: '★';
+            color: var(--gold);
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.8rem, 5.5vw, 5rem);
+            font-weight: 800;
+            line-height: 1.05;
+            margin-bottom: 24px;
+            color: var(--white);
+        }
+
+        .hero-title .gold-line {
+            display: block;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 800px 100%;
+            animation: goldShimmer 4s linear infinite;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-body);
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 560px;
+        }
+
+        .hero-subtitle strong {
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 56px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 4px;
+            font-family: var(--font-ui);
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+
+        .btn:hover::after { transform: translateX(100%); }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold) 0%, #a8893a 100%);
+            color: var(--navy-deep);
+            box-shadow: 0 8px 24px rgba(201, 168, 76, 0.3);
+            animation: pulseGold 3s ease-in-out infinite;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(201, 168, 76, 0.45);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1.5px solid rgba(201, 168, 76, 0.45);
+            color: var(--gold);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(201, 168, 76, 0.08);
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .btn-lg { padding: 16px 36px; font-size: 0.92rem; }
+        .btn-full { width: 100%; justify-content: center; padding: 18px; }
+
+        /* Hero trust bar */
+        .hero-trust {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-ui);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+        }
+
+        .trust-item i {
+            color: var(--gold);
+            font-size: 0.8rem;
+        }
+
+        /* Hero right: seal stamp */
+        .hero-seal-wrap {
+            position: absolute;
+            right: 6%;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 3;
+            animation: stampIn 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s both;
+        }
+
+        /* ===== SVG SEAL ===== */
+        .seal-svg {
+            width: 340px;
+            height: 340px;
+            filter: drop-shadow(0 20px 60px rgba(201, 168, 76, 0.25));
+        }
+
+        .seal-ring-outer {
+            animation: sealRotate 30s linear infinite;
+            transform-origin: center;
+        }
+
+        /* ===== SECTION BASE ===== */
+        section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-eyebrow {
+            font-family: var(--font-ui);
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            color: var(--white);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 560px;
+            margin: 28px auto 0;
+            line-height: 1.8;
+        }
+
+        /* ===== TRUST BAR / CITIES ===== */
+        .cities-bar {
+            background: rgba(201, 168, 76, 0.06);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 16px 0;
+            overflow: hidden;
+        }
+
+        .cities-scroll {
+            display: flex;
+            align-items: center;
+            gap: 48px;
+            animation: marquee 20s linear infinite;
+            white-space: nowrap;
+            width: max-content;
+        }
+
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        .city-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-ui);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .city-item i { opacity: 0.6; }
+
+        /* ===== WHY CHOOSE ===== */
+        .why-choose {
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--navy-deep) 0%, rgba(26, 39, 68, 0.4) 100%);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-subtle);
+            padding: 40px 32px;
+            position: relative;
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .feature-card:hover::before { transform: scaleX(1); }
+
+        .feature-card:hover {
+            background: rgba(26, 39, 68, 0.9);
+            border-color: rgba(201, 168, 76, 0.35);
+            transform: translateY(-6px);
+        }
+
+        .feature-number {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: rgba(201, 168, 76, 0.1);
+            line-height: 1;
+            margin-bottom: 16px;
+            transition: color 0.4s ease;
+        }
+
+        .feature-card:hover .feature-number {
+            color: rgba(201, 168, 76, 0.2);
+        }
+
+        .feature-icon-wrap {
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, rgba(201, 168, 76, 0.15), rgba(201, 168, 76, 0.05));
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon-wrap {
+            background: linear-gradient(135deg, rgba(201, 168, 76, 0.25), rgba(201, 168, 76, 0.1));
+        }
+
+        .feature-icon-wrap i {
+            color: var(--gold);
+            font-size: 1.4rem;
+        }
+
+        .feature-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ===== SERVICES ===== */
+        .services {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 50% at 50% 50%, rgba(36, 54, 96, 0.3) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: 2px;
+            padding: 36px 28px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover::after { transform: scaleX(1); }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(201, 168, 76, 0.3);
+            box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .service-tag {
+            display: inline-block;
+            background: rgba(201, 168, 76, 0.1);
+            border: 1px solid rgba(201, 168, 76, 0.25);
+            color: var(--gold);
+            font-family: var(--font-ui);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 2px;
+            margin-bottom: 8px;
+            margin-right: 6px;
+        }
+
+        .service-price-row {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .service-price {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--gold);
+        }
+
+        .service-price-note {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== PRICING TABLE ===== */
+        .pricing {
+            padding: 100px 0;
+            background: rgba(13, 23, 41, 0.7);
+        }
+
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .pricing-table thead {
+            background: linear-gradient(135deg, var(--navy-mid), var(--navy));
+        }
+
+        .pricing-table thead th {
+            font-family: var(--font-ui);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            padding: 20px 24px;
+            text-align: left;
+            border-bottom: 2px solid rgba(201, 168, 76, 0.3);
+        }
+
+        .pricing-table tbody tr {
+            border-bottom: 1px solid var(--border-subtle);
+            transition: background 0.2s ease;
+        }
+
+        .pricing-table tbody tr:last-child { border-bottom: none; }
+
+        .pricing-table tbody tr:hover {
+            background: rgba(201, 168, 76, 0.04);
+        }
+
+        .pricing-table td {
+            padding: 18px 24px;
+            font-size: 0.92rem;
+            color: var(--white);
+            vertical-align: top;
+        }
+
+        .pricing-table td:first-child {
+            font-family: var(--font-ui);
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .pricing-table td:nth-child(2) {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--gold);
+            white-space: nowrap;
+        }
+
+        .pricing-table td:last-child {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+
+        .free-badge {
+            background: linear-gradient(135deg, #2d7a4f, #1e5c38);
+            color: #6ee89a;
+            font-family: var(--font-ui);
+            font-size: 0.85rem;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 2px;
+            letter-spacing: 1px;
+        }
+
+        /* ===== ABOUT ===== */
+        .about {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-left h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .about-left h2 em {
+            font-style: normal;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-eyebrow {
+            font-family: var(--font-ui);
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .about-text {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.9;
+            margin: 24px 0 32px;
+        }
+
+        .about-values {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .value-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .value-icon {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            background: rgba(201, 168, 76, 0.1);
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .value-icon i { color: var(--gold); font-size: 0.95rem; }
+
+        .value-content h4 {
+            font-family: var(--font-ui);
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .value-content p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        .about-right {
+            position: relative;
+        }
+
+        .about-seal-large {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            display: block;
+            animation: float 7s ease-in-out infinite;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            margin-top: 48px;
+            background: var(--border-subtle);
+            border: 1px solid var(--border-subtle);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .stat-box {
+            background: var(--card-bg);
+            padding: 28px 20px;
+            text-align: center;
+        }
+
+        .stat-num {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-family: var(--font-ui);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        /* ===== INTAKE FORM ===== */
+        .intake {
+            padding: 120px 0;
+            background:
+                radial-gradient(ellipse 70% 60% at 50% 50%, rgba(36, 54, 96, 0.4) 0%, transparent 70%),
+                var(--navy-deep);
+        }
+
+        .intake-wrapper {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .intake-banner {
+            background: linear-gradient(135deg, rgba(201, 168, 76, 0.12), rgba(201, 168, 76, 0.04));
+            border: 1px solid rgba(201, 168, 76, 0.3);
+            border-left: 4px solid var(--gold);
+            border-radius: 4px;
+            padding: 20px 24px;
+            margin-bottom: 40px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .intake-banner i {
+            color: var(--gold);
+            font-size: 1.3rem;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .intake-banner p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+
+        .intake-banner strong {
+            color: var(--white);
+        }
+
+        .intake-form {
+            background: rgba(26, 39, 68, 0.5);
+            border: 1px solid var(--border-subtle);
+            border-radius: 4px;
+            padding: 48px;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.4);
+            animation: borderGlow 4s ease-in-out infinite;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        .form-group.full { grid-column: 1 / -1; }
+
+        .form-group label {
+            display: block;
+            font-family: var(--font-ui);
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px 14px 44px;
+            background: rgba(13, 23, 41, 0.8);
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            border-radius: 4px;
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group textarea {
+            padding-top: 14px;
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.12);
+            background: rgba(13, 23, 41, 1);
+        }
+
+        .form-group select option {
+            background: var(--navy);
+        }
+
+        .form-group .field-icon {
+            position: absolute;
+            left: 14px;
+            top: 38px;
+            color: rgba(201, 168, 76, 0.5);
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            pointer-events: none;
+        }
+
+        .form-group:focus-within .field-icon {
+            color: var(--gold);
+        }
+
+        .form-group input[type="file"] {
+            padding: 12px 16px;
+            cursor: pointer;
+        }
+
+        .file-note {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 6px;
+            font-style: italic;
+        }
+
+        #formStatus {
+            margin-top: 20px;
+            padding: 16px;
+            border-radius: 4px;
+            text-align: center;
+            font-family: var(--font-ui);
+            font-size: 0.88rem;
+            display: none;
+        }
+
+        #formStatus.success {
+            background: rgba(0, 255, 127, 0.1);
+            border: 1px solid rgba(0, 255, 127, 0.3);
+            color: #6ee89a;
+            display: block;
+        }
+
+        #formStatus.error {
+            background: rgba(255, 80, 80, 0.1);
+            border: 1px solid rgba(255, 80, 80, 0.3);
+            color: #ff8080;
+            display: block;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--navy-deep);
+            border-top: 1px solid var(--border-subtle);
+            padding: 60px 0 32px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand .nav-seal {
+            width: 56px;
+            height: 56px;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand-name {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            line-height: 1.8;
+            max-width: 280px;
+        }
+
+        .footer-section h4 {
+            font-family: var(--font-ui);
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.88rem;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover { color: var(--gold); }
+        .footer-links a i { font-size: 0.75rem; opacity: 0.6; }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .contact-item i {
+            color: var(--gold);
+            margin-top: 2px;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .footer-bottom {
+            padding-top: 28px;
+            border-top: 1px solid var(--border-subtle);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-bottom p {
+            color: rgba(247, 245, 240, 0.35);
+            font-size: 0.78rem;
+        }
+
+        .footer-disclaimer {
+            color: rgba(247, 245, 240, 0.3);
+            font-size: 0.72rem;
+            line-height: 1.7;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(201, 168, 76, 0.06);
+            font-style: italic;
+        }
+
+        /* ===== MOBILE NAV ===== */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: 1px solid rgba(201, 168, 76, 0.3);
+            color: var(--gold);
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero-seal-wrap { right: 3%; }
+            .seal-svg { width: 280px; height: 280px; }
+            .about-grid { grid-template-columns: 1fr; gap: 48px; }
+            .about-right { display: none; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu-toggle { display: block; }
+            .hero-seal-wrap { display: none; }
+            .hero { padding: 100px 24px 60px; }
+            .form-row { grid-template-columns: 1fr; }
+            .intake-form { padding: 28px 20px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .stats-row { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title { font-size: 2.4rem; }
+            .hero-buttons { flex-direction: column; }
+            .hero-trust { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#" class="nav-brand">
+                <!-- Inline SVG Seal Logo for Navbar -->
+                <svg class="nav-seal" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="48" fill="#1a2744" stroke="#c9a84c" stroke-width="2"/>
+                    <circle cx="50" cy="50" r="40" fill="none" stroke="#c9a84c" stroke-width="0.8" stroke-dasharray="3,2"/>
+                    <text x="50" y="57" font-family="Georgia,serif" font-weight="bold" font-size="32" fill="#c9a84c" text-anchor="middle">S</text>
+                    <text x="50" y="20" font-family="Arial,sans-serif" font-weight="bold" font-size="7" fill="#c9a84c" text-anchor="middle" letter-spacing="1">SIGNATURE SECURE USA</text>
+                    <text x="50" y="84" font-family="Arial,sans-serif" font-size="5.5" fill="#c9a84c" text-anchor="middle" letter-spacing="1.5">AUSTIN · TEXAS</text>
+                    <polygon points="50,30 51.5,35 56,35 52.5,38 54,43 50,40 46,43 47.5,38 44,35 48.5,35" fill="none" stroke="#c9a84c" stroke-width="0.6" opacity="0.5"/>
+                </svg>
+                <div class="nav-brand-text">
+                    <span class="nav-brand-name">Signature Secure USA</span>
+                    <span class="nav-brand-tagline">Secure · Certified · Expedited</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#intake" class="nav-cta">Free Pre-Audit</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" onclick="document.querySelector('.nav-links').style.display = document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex'">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" style="opacity:1;transform:none;">
+        <div class="hero-bg"></div>
+        <div class="hero-grid"></div>
+
+        <!-- Decorative Texas SVG Background -->
+        <svg class="hero-texas-bg" viewBox="0 0 500 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 60,30 L 440,30 L 460,80 L 460,200 L 400,220 L 380,280 L 360,280 L 340,320 L 320,320 L 280,380 L 260,420 L 240,420 L 220,380 L 180,340 L 140,340 L 100,300 L 60,260 L 40,200 L 40,80 Z" fill="white"/>
+        </svg>
+
+        <div class="container" style="position:relative;z-index:2;">
+            <div class="hero-content">
+                <div class="hero-badge">Austin's Premier Document Authority</div>
+                <h1 class="hero-title">
+                    Fast &amp; Secure
+                    <span class="gold-line">Apostille Services</span>
+                    in Austin
+                </h1>
+                <p class="hero-subtitle">
+                    Professional <strong>Hand-Carry Authentication</strong> at the Texas Secretary of State &amp; Federal FBI Background Checks.
+                    We navigate the red tape so you don't have to.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#intake" class="btn btn-primary btn-lg">
+                        <i class="fas fa-shield-halved"></i> Get Free Pre-Audit
+                    </a>
+                    <a href="#services" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-list-check"></i> Our Services
+                    </a>
+                </div>
+                <div class="hero-trust">
+                    <div class="trust-item"><i class="fas fa-map-marker-alt"></i> Austin Metro</div>
+                    <div class="trust-item"><i class="fas fa-map-marker-alt"></i> Houston</div>
+                    <div class="trust-item"><i class="fas fa-map-marker-alt"></i> Dallas</div>
+                    <div class="trust-item"><i class="fas fa-map-marker-alt"></i> San Antonio</div>
+                    <div class="trust-item"><i class="fas fa-map-marker-alt"></i> El Paso</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Seal Stamp -->
+        <div class="hero-seal-wrap">
+            <svg class="seal-svg" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <filter id="sealGlow">
+                        <feGaussianBlur stdDeviation="8" result="blur"/>
+                        <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                    </filter>
+                    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#e8c96d"/>
+                        <stop offset="50%" style="stop-color:#c9a84c"/>
+                        <stop offset="100%" style="stop-color:#a8893a"/>
+                    </linearGradient>
+                </defs>
+                <!-- Outer glow ring -->
+                <circle cx="180" cy="180" r="165" fill="none" stroke="url(#goldGrad)" stroke-width="1" opacity="0.3"/>
+                <!-- Rotating outer text ring -->
+                <g class="seal-ring-outer">
+                    <circle cx="180" cy="180" r="155" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" stroke-dasharray="4,3"/>
+                </g>
+                <!-- Main circle -->
+                <circle cx="180" cy="180" r="145" fill="#1a2744" stroke="url(#goldGrad)" stroke-width="3"/>
+                <circle cx="180" cy="180" r="130" fill="none" stroke="url(#goldGrad)" stroke-width="1" opacity="0.5"/>
+                <!-- Text path top -->
+                <defs>
+                    <path id="topArc" d="M 50,180 A 130,130 0 0,1 310,180"/>
+                    <path id="botArc" d="M 60,210 A 130,130 0 0,0 300,210"/>
+                </defs>
+                <text font-family="Montserrat,Arial,sans-serif" font-weight="700" font-size="13" fill="#c9a84c" letter-spacing="3">
+                    <textPath href="#topArc" startOffset="8%">SIGNATURE SECURE USA · AUSTIN ·</textPath>
+                </text>
+                <text font-family="Montserrat,Arial,sans-serif" font-weight="600" font-size="11" fill="#c9a84c" letter-spacing="2" opacity="0.8">
+                    <textPath href="#botArc" startOffset="5%">HAND-CARRY APOSTILLE SERVICE</textPath>
+                </text>
+                <!-- Texas shape -->
+                <g transform="translate(120,90) scale(0.24)">
+                    <path d="M 60,30 L 440,30 L 460,80 L 460,200 L 400,220 L 380,280 L 360,280 L 340,320 L 320,320 L 280,380 L 260,420 L 240,420 L 220,380 L 180,340 L 140,340 L 100,300 L 60,260 L 40,200 L 40,80 Z" fill="url(#goldGrad)" opacity="0.9"/>
+                </g>
+                <!-- Star on Texas -->
+                <text x="180" y="196" font-family="Georgia,serif" font-size="18" fill="#1a2744" text-anchor="middle">★</text>
+                <!-- Center text -->
+                <text x="180" y="248" font-family="Montserrat,Arial,sans-serif" font-weight="800" font-size="20" fill="url(#goldGrad)" text-anchor="middle" letter-spacing="2">PREMIER</text>
+                <text x="180" y="268" font-family="Montserrat,Arial,sans-serif" font-weight="600" font-size="11" fill="#c9a84c" text-anchor="middle" letter-spacing="2" opacity="0.8">PARTNER NETWORK</text>
+                <!-- Stars decoration -->
+                <text x="85" y="200" font-size="10" fill="#c9a84c" opacity="0.6">★</text>
+                <text x="265" y="200" font-size="10" fill="#c9a84c" opacity="0.6">★</text>
+                <text x="100" y="290" font-size="8" fill="#c9a84c" opacity="0.5">★</text>
+                <text x="248" y="290" font-size="8" fill="#c9a84c" opacity="0.5">★</text>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ===== CITIES BAR ===== -->
+    <div class="cities-bar">
+        <div class="cities-scroll">
+            <span class="city-item"><i class="fas fa-star"></i> Austin</span>
+            <span class="city-item"><i class="fas fa-star"></i> Houston</span>
+            <span class="city-item"><i class="fas fa-star"></i> Dallas</span>
+            <span class="city-item"><i class="fas fa-star"></i> San Antonio</span>
+            <span class="city-item"><i class="fas fa-star"></i> El Paso</span>
+            <span class="city-item"><i class="fas fa-star"></i> Waco</span>
+            <span class="city-item"><i class="fas fa-star"></i> Commissioned TX Notary</span>
+            <span class="city-item"><i class="fas fa-star"></i> NNA Certified</span>
+            <span class="city-item"><i class="fas fa-star"></i> Authentication Across Texas</span>
+            <!-- Duplicate for seamless loop -->
+            <span class="city-item"><i class="fas fa-star"></i> Austin</span>
+            <span class="city-item"><i class="fas fa-star"></i> Houston</span>
+            <span class="city-item"><i class="fas fa-star"></i> Dallas</span>
+            <span class="city-item"><i class="fas fa-star"></i> San Antonio</span>
+            <span class="city-item"><i class="fas fa-star"></i> El Paso</span>
+            <span class="city-item"><i class="fas fa-star"></i> Waco</span>
+            <span class="city-item"><i class="fas fa-star"></i> Commissioned TX Notary</span>
+            <span class="city-item"><i class="fas fa-star"></i> NNA Certified</span>
+            <span class="city-item"><i class="fas fa-star"></i> Authentication Across Texas</span>
+        </div>
+    </div>
+
+    <!-- ===== WHY CHOOSE US ===== -->
+    <section id="why-us" class="why-choose">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-eyebrow">Why Choose Us</p>
+                <h2 class="section-title">The Signature Secure Advantage</h2>
+                <p class="section-subtitle">We're not just a document service — we're your boots-on-the-ground expert at the Texas Secretary of State.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-number">01</div>
+                    <div class="feature-icon-wrap"><i class="fas fa-bolt"></i></div>
+                    <h3>Same-Day Hand-Carry</h3>
+                    <p>We physically hand-carry your documents to the Secretary of State daily. Same-day and 24-hour turnarounds available for urgent matters.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-number">02</div>
+                    <div class="feature-icon-wrap"><i class="fas fa-shield-halved"></i></div>
+                    <h3>Free Document Pre-Audit</h3>
+                    <p>Our expert review catches errors in notary seals and wording before they cause government rejections — saving you time and money.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-number">03</div>
+                    <div class="feature-icon-wrap"><i class="fas fa-certificate"></i></div>
+                    <h3>Certified Professionals</h3>
+                    <p>Commissioned Texas Notary &amp; NNA Certified. Staying ahead of the latest state and federal regulations so you don't have to.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-number">04</div>
+                    <div class="feature-icon-wrap"><i class="fas fa-handshake"></i></div>
+                    <h3>White-Glove Service</h3>
+                    <p>5+ years serving Austin families, law firms, dental offices, and HR departments with total security and confidentiality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-eyebrow">What We Do</p>
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">From state apostilles to FBI background checks — expert handling of your most critical documents.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <span class="service-icon">🏛️</span>
+                    <span class="service-tag">Most Popular</span>
+                    <h3>Texas State Apostille</h3>
+                    <p>Hand-carried directly to the Texas Secretary of State for birth certificates, marriage licenses, business documents, and power of attorney. 1-2 day standard; same-day rush available.</p>
+                    <div class="service-price-row">
+                        <span class="service-price">$100</span>
+                        <span class="service-price-note">starting · incl. $15 SOS fee</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🌐</span>
+                    <span class="service-tag">Federal</span>
+                    <h3>Federal / FBI Apostille</h3>
+                    <p>Expert handling of FBI background checks and federal documents at the U.S. Department of State. Processed via Washington D.C. with full tracking.</p>
+                    <div class="service-price-row">
+                        <span class="service-price">$150</span>
+                        <span class="service-price-note">starting · incl. $20 USDOS fee</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">👆</span>
+                    <span class="service-tag">2026 Mandate</span>
+                    <h3>Mobile Ink-Rolled Fingerprinting</h3>
+                    <p>Professional FD-258 ink-rolled fingerprinting at your home or office in the Austin metro area. TSBDE compliance for dentists and dental staff. Zero-smudge archival ink technique.</p>
+                    <div class="service-price-row">
+                        <span class="service-price">$150</span>
+                        <span class="service-price-note">on-site · + $20/card</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">📝</span>
+                    <span class="service-tag">Mobile</span>
+                    <h3>Mobile Notary Public</h3>
+                    <p>We come to you anywhere in the Austin metro area. Travel fee plus $10 per state-regulated signature. Ideal for real estate closings, legal docs, and corporate filings.</p>
+                    <div class="service-price-row">
+                        <span class="service-price">$65</span>
+                        <span class="service-price-note">travel fee + $10/signature</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">👶</span>
+                    <span class="service-tag">International</span>
+                    <h3>International Adoption</h3>
+                    <p>Specialized apostille processing for international adoption documents. Government rate — capped at $100 per child. Compassionate, priority handling.</p>
+                    <div class="service-price-row">
+                        <span class="service-price">$10</span>
+                        <span class="service-price-note">per doc · capped $100/child</span>
+                    </div>
+                </div>
+                <div class="service-card" style="border-color: rgba(110, 232, 154, 0.25); background: rgba(26, 39, 68, 0.7);">
+                    <span class="service-icon">🔍</span>
+                    <span class="service-tag" style="border-color:rgba(110,232,154,0.4);color:#6ee89a;background:rgba(110,232,154,0.08);">Free</span>
+                    <h3>Document Pre-Audit</h3>
+                    <p>Our complimentary expert review checks notary seals, signatures, and jurisdictional wording to ensure 100% compliance with Texas and Federal requirements before you submit.</p>
+                    <div class="service-price-row" style="border-top-color:rgba(110,232,154,0.2);">
+                        <span class="service-price" style="color:#6ee89a;">FREE</span>
+                        <span class="service-price-note">prevents rejections</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRICING TABLE ===== -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-eyebrow">Transparent Pricing</p>
+                <h2 class="section-title">2026 Price List</h2>
+                <p class="section-subtitle">All-inclusive pricing — government fees included. No hidden costs, no surprises.</p>
+            </div>
+            <div style="overflow-x:auto;">
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Service Category</th>
+                            <th>Starting Fee</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Texas State Apostille</td>
+                            <td>$100.00</td>
+                            <td>Includes $15 SOS fee + 1–2 day hand-carry</td>
+                        </tr>
+                        <tr>
+                            <td>Rush TX (Same-Day)</td>
+                            <td>$150.00</td>
+                            <td>Hand-carried to the SOS by 10 AM; returned same day</td>
+                        </tr>
+                        <tr>
+                            <td>Additional TX Document</td>
+                            <td>$75.00</td>
+                            <td>Discounted rate for multiple docs in one order</td>
+                        </tr>
+                        <tr>
+                            <td>Federal / FBI Apostille</td>
+                            <td>$150.00</td>
+                            <td>Includes $20 USDOS fee; handled via Washington D.C.</td>
+                        </tr>
+                        <tr>
+                            <td>International Adoption</td>
+                            <td>$10.00</td>
+                            <td>Per document; capped at $100 per child (government rate)</td>
+                        </tr>
+                        <tr>
+                            <td>Mobile Ink Fingerprinting</td>
+                            <td>$150.00</td>
+                            <td>On-site service fee (includes travel in Austin metro)</td>
+                        </tr>
+                        <tr>
+                            <td>Fingerprint Card Fee</td>
+                            <td>$20.00</td>
+                            <td>Per FD-258 ink-rolled card completed</td>
+                        </tr>
+                        <tr>
+                            <td>Mobile Notary (Austin)</td>
+                            <td>$65.00</td>
+                            <td>Travel fee + $10 per state-regulated signature</td>
+                        </tr>
+                        <tr>
+                            <td>Document Pre-Audit</td>
+                            <td><span class="free-badge">FREE</span></td>
+                            <td>Expert review to prevent government rejections</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="text-align:center;color:var(--text-muted);font-size:0.82rem;margin-top:20px;">
+                <i class="fas fa-info-circle" style="color:var(--gold);margin-right:6px;"></i>
+                A $50 surcharge applies for travel more than 15 miles outside Central Austin. Corporate group rates available for 3+ fingerprinting sessions.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-left">
+                    <p class="about-eyebrow">About the Founder</p>
+                    <h2>Meet Your Document<br><em>Authentication Expert</em></h2>
+                    <p class="about-text">
+                        Signature Secure USA was founded with a clear goal: to provide Austin residents and businesses with a reliable, white-glove alternative to the confusing bureaucracy of document authentication. After seeing how difficult it can be for families and professionals to navigate state and federal requirements, we dedicated ourselves to becoming the premier "boots-on-the-ground" expert at the Texas Secretary of State.
+                    </p>
+                    <p class="about-text" style="margin-top:0;">
+                        My approach is simple: I treat every birth certificate, FBI background check, and corporate filing as if it were my own. When you work with me, you aren't just getting a service — you're getting an advocate in Austin who handles the red tape so you can move forward with confidence.
+                    </p>
+                    <div class="about-values">
+                        <div class="value-item">
+                            <div class="value-icon"><i class="fas fa-lock"></i></div>
+                            <div class="value-content">
+                                <h4>Integrity</h4>
+                                <p>We handle your sensitive identity data with total confidentiality and professionalism.</p>
+                            </div>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon"><i class="fas fa-bolt"></i></div>
+                            <div class="value-content">
+                                <h4>Speed</h4>
+                                <p>Our proximity to the Texas Capitol enables the fastest turnaround times in Austin.</p>
+                            </div>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon"><i class="fas fa-bullseye"></i></div>
+                            <div class="value-content">
+                                <h4>Accuracy</h4>
+                                <p>Our Pre-Audit process catches errors before they cause costly government rejections.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-right">
+                    <!-- Large Seal SVG for About section -->
+                    <svg class="about-seal-large" viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="goldGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#e8c96d"/>
+                                <stop offset="50%" style="stop-color:#c9a84c"/>
+                                <stop offset="100%" style="stop-color:#a8893a"/>
+                            </linearGradient>
+                            <filter id="glow2">
+                                <feGaussianBlur stdDeviation="6" result="blur"/>
+                                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                            </filter>
+                        </defs>
+                        <!-- Outer rings -->
+                        <circle cx="210" cy="210" r="200" fill="none" stroke="url(#goldGrad2)" stroke-width="0.5" opacity="0.2"/>
+                        <circle cx="210" cy="210" r="185" fill="none" stroke="url(#goldGrad2)" stroke-width="1" stroke-dasharray="5,4" opacity="0.4"/>
+                        <!-- Main body -->
+                        <circle cx="210" cy="210" r="170" fill="#1a2744" stroke="url(#goldGrad2)" stroke-width="4"/>
+                        <circle cx="210" cy="210" r="155" fill="none" stroke="url(#goldGrad2)" stroke-width="1.5" opacity="0.5"/>
+                        <!-- Top text arc -->
+                        <defs>
+                            <path id="arc1" d="M 55,210 A 155,155 0 0,1 365,210"/>
+                            <path id="arc2" d="M 65,245 A 155,155 0 0,0 355,245"/>
+                        </defs>
+                        <text font-family="Montserrat,Arial,sans-serif" font-weight="700" font-size="14" fill="#c9a84c" letter-spacing="4">
+                            <textPath href="#arc1" startOffset="6%">SIGNATURE SECURE USA · AUSTIN TX ·</textPath>
+                        </text>
+                        <text font-family="Montserrat,Arial,sans-serif" font-weight="600" font-size="12" fill="#c9a84c" letter-spacing="2.5" opacity="0.7">
+                            <textPath href="#arc2" startOffset="4%">PREMIER PARTNER NETWORK</textPath>
+                        </text>
+                        <!-- Texas shape centered -->
+                        <g transform="translate(130,100) scale(0.28)">
+                            <path d="M 60,30 L 440,30 L 460,80 L 460,200 L 400,220 L 380,280 L 360,280 L 340,320 L 320,320 L 280,380 L 260,420 L 240,420 L 220,380 L 180,340 L 140,340 L 100,300 L 60,260 L 40,200 L 40,80 Z" fill="url(#goldGrad2)"/>
+                        </g>
+                        <!-- Austin star -->
+                        <text x="212" y="226" font-family="Georgia,serif" font-size="22" fill="#1a2744" text-anchor="middle">★</text>
+                        <!-- Bottom cities -->
+                        <text x="210" y="290" font-family="Montserrat,Arial,sans-serif" font-weight="700" font-size="11" fill="url(#goldGrad2)" text-anchor="middle" letter-spacing="1.5">HOUSTON · DALLAS · SAN ANTONIO</text>
+                        <text x="210" y="308" font-family="Montserrat,Arial,sans-serif" font-weight="600" font-size="10" fill="#c9a84c" text-anchor="middle" letter-spacing="1" opacity="0.7">WACO · EL PASO</text>
+                        <!-- Stars -->
+                        <text x="90" y="214" font-size="12" fill="#c9a84c" opacity="0.7">★</text>
+                        <text x="316" y="214" font-size="12" fill="#c9a84c" opacity="0.7">★</text>
+                        <text x="100" y="335" font-size="10" fill="#c9a84c" opacity="0.5">★</text>
+                        <text x="308" y="335" font-size="10" fill="#c9a84c" opacity="0.5">★</text>
+                    </svg>
+
+                    <div class="stats-row">
+                        <div class="stat-box">
+                            <span class="stat-num">1-2</span>
+                            <span class="stat-label">Day Turnaround</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-num">5+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-num">99.9%</span>
+                            <span class="stat-label">Acceptance Rate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== INTAKE FORM ===== -->
+    <section id="intake" class="intake">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-eyebrow">Get Started Today</p>
+                <h2 class="section-title">Free Document Pre-Audit</h2>
+                <p class="section-subtitle">Fill out our secure intake form and we'll review your document within 2 business hours.</p>
+            </div>
+
+            <div class="intake-wrapper">
+                <div class="intake-banner">
+                    <i class="fas fa-shield-halved"></i>
+                    <p>
+                        <strong>Ready to get started?</strong> Fill out our secure intake form below for a <strong>Free Digital Pre-Audit</strong>.
+                        Our experts will review your document's notary seal and wording to ensure it meets all government requirements before we begin.
+                    </p>
+                </div>
+
+                <form id="intakeForm" class="intake-form" enctype="multipart/form-data">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name (Contact Person)</label>
+                            <input type="text" id="name" name="name" placeholder="Your full name" required>
+                            <i class="fas fa-user field-icon"></i>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Professional Email</label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                            <i class="fas fa-envelope field-icon"></i>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number (For Urgent Questions)</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required>
+                            <i class="fas fa-phone field-icon"></i>
+                        </div>
+                        <div class="form-group">
+                            <label for="timeline">Timeline Needed</label>
+                            <select id="timeline" name="timeline">
+                                <option value="" disabled selected>When do you need documents returned?</option>
+                                <option value="same-day">Same Day (Rush)</option>
+                                <option value="1-2days">1–2 Business Days</option>
+                                <option value="1week">Within 1 Week</option>
+                                <option value="flexible">Flexible</option>
+                            </select>
+                            <i class="fas fa-clock field-icon"></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Requested</label>
+                        <select id="service" name="service" required>
+                            <option value="" disabled selected>Select a service</option>
+                            <option value="tx-apostille">Texas State Apostille</option>
+                            <option value="federal-apostille">Federal / FBI Background Check Authentication</option>
+                            <option value="fingerprinting">Mobile Ink-Rolled Fingerprinting (FD-258)</option>
+                            <option value="notary">Mobile Notary Public</option>
+                            <option value="adoption">International Adoption Documents</option>
+                            <option value="pre-audit">Free Document Pre-Audit Only</option>
+                        </select>
+                        <i class="fas fa-list-check field-icon"></i>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="docType">Type of Document</label>
+                            <select id="docType" name="docType">
+                                <option value="" disabled selected>e.g., Birth Certificate, FBI Check...</option>
+                                <option value="birth-cert">Birth Certificate</option>
+                                <option value="marriage">Marriage License</option>
+                                <option value="power-atty">Power of Attorney</option>
+                                <option value="fbi">FBI Background Check</option>
+                                <option value="corporate">Corporate / Business Document</option>
+                                <option value="adoption">Adoption Documents</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <i class="fas fa-file-alt field-icon"></i>
+                        </div>
+                        <div class="form-group">
+                            <label for="destination">Country of Destination</label>
+                            <input type="text" id="destination" name="destination" placeholder="Where will this be used?">
+                            <i class="fas fa-globe field-icon"></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="numDocs">Number of Documents</label>
+                        <input type="number" id="numDocs" name="numDocs" placeholder="How many documents?" min="1" value="1">
+                        <i class="fas fa-copy field-icon"></i>
+                    </div>
+                    <div class="form-group">
+                        <label for="file">Upload Document Photo for Free Pre-Audit</label>
+                        <input type="file" id="file" name="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+                        <p class="file-note">Please upload a clear, well-lit photo of the signature/notary page. This allows us to perform your Free Pre-Audit and provide an accurate quote.</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Additional Notes</label>
+                        <textarea id="message" name="message" placeholder="Anything else we should know?"></textarea>
+                        <i class="fas fa-comment field-icon" style="top:44px;"></i>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <i class="fas fa-shield-halved"></i> Submit for Free Pre-Audit
+                    </button>
+                </form>
+                <div id="formStatus" class="form-status"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <svg class="nav-seal" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="48" fill="#1a2744" stroke="#c9a84c" stroke-width="2"/>
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="#c9a84c" stroke-width="0.8" stroke-dasharray="3,2"/>
+                        <text x="50" y="57" font-family="Georgia,serif" font-weight="bold" font-size="32" fill="#c9a84c" text-anchor="middle">S</text>
+                        <text x="50" y="20" font-family="Arial,sans-serif" font-weight="bold" font-size="7" fill="#c9a84c" text-anchor="middle" letter-spacing="1">SIGNATURE SECURE USA</text>
+                        <text x="50" y="84" font-family="Arial,sans-serif" font-size="5.5" fill="#c9a84c" text-anchor="middle" letter-spacing="1.5">AUSTIN · TEXAS</text>
+                    </svg>
+                    <div class="footer-brand-name">Signature Secure USA</div>
+                    <p>Austin's premier partner for expedited document authentication, hand-carry apostille services, and professional mobile fingerprinting.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i>Texas State Apostille</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i>Federal / FBI Apostille</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i>Mobile Fingerprinting</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i>Mobile Notary Public</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i>Free Pre-Audit</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#why-us"><i class="fas fa-chevron-right"></i>Why Choose Us</a></li>
+                        <li><a href="#pricing"><i class="fas fa-chevron-right"></i>2026 Pricing</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i>About the Founder</a></li>
+                        <li><a href="#intake"><i class="fas fa-chevron-right"></i>Get Free Quote</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@signaturesecureusa.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>[Your Phone Number]</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Austin Metro Area, Texas<br>Serving Houston, Dallas, San Antonio, El Paso &amp; Waco</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="footer-disclaimer">
+                <strong>Disclaimer:</strong> The information provided is for general informational purposes only and is not intended to be a substitute for professional medical or legal advice. Signature Secure USA is a document service and does not provide legal advice. Always verify government requirements for document authentications directly with the issuing agency.
+            </p>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Signature Secure USA. All rights reserved. Austin, Texas.</p>
+                <p>Commissioned Texas Notary · NNA Certified · Authentication Across Texas</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== NAVBAR SCROLL =====
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        // ===== SCROLL REVEAL =====
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, i * 80);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('section:not(.hero)').forEach(section => {
+            observer.observe(section);
+        });
+
+        // ===== CARD STAGGER =====
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const cards = entry.target.querySelectorAll('.feature-card, .service-card');
+                    cards.forEach((card, i) => {
+                        card.style.transitionDelay = `${i * 0.1}s`;
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    });
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.features-grid, .services-grid').forEach(grid => {
+            grid.querySelectorAll('.feature-card, .service-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease, box-shadow 0.4s ease, border-color 0.4s ease, background 0.4s ease';
+            });
+            cardObserver.observe(grid);
+        });
+
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // ===== FORM SUBMISSION =====
+        document.getElementById('intakeForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            const status = document.getElementById('formStatus');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            // Simulate form submission
+            await new Promise(resolve => setTimeout(resolve, 1500));
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fas fa-shield-halved"></i> Submit for Free Pre-Audit';
+            status.className = 'form-status success';
+            status.textContent = '✓ Thank you! Signature Secure USA has received your request. We are currently performing your pre-audit and will send your custom quote within 2 business hours.';
+            this.reset();
+            status.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+
+        // ===== COUNTER ANIMATION =====
+        const countObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.stat-num').forEach(el => {
+                        const text = el.textContent.trim();
+                        const num = parseFloat(text.replace(/[^0-9.]/g, ''));
+                        const suffix = text.replace(/[0-9.]/g, '');
+                        if (!isNaN(num) && num > 1) {
+                            let start = 0;
+                            const duration = 1500;
+                            const step = (timestamp) => {
+                                if (!start) start = timestamp;
+                                const progress = Math.min((timestamp - start) / duration, 1);
+                                const eased = 1 - Math.pow(1 - progress, 3);
+                                el.textContent = (num < 10 ? (num * eased).toFixed(1) : Math.round(num * eased)) + suffix;
+                                if (progress < 1) requestAnimationFrame(step);
+                            };
+                            requestAnimationFrame(step);
+                        }
+                    });
+                    countObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stats-row').forEach(el => countObserver.observe(el));
+    </script>
+</body>
+</html>
