@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
 
-// Multer
+// Multer uploads
 const uploadsDir = 'uploads';
 if (!fs.existsSync(uploadsDir)) fs.mkdirSync(uploadsDir);
 
@@ -23,10 +23,10 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage, limits: { fileSize: 10 * 1024 * 1024 } });
 
-// ✅ EMAIL TRANSPORTER
-const transporter = nodemailer.createTransporter({
-    host: process.env.SMTP_HOST,
-    port: process.env.SMTP_PORT,
+// ✅ FIXED: createTransport (NOT createTransporter)
+const transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST || 'smtp.gmail.com',
+    port: parseInt(process.env.SMTP_PORT) || 587,
     secure: false,
     auth: {
         user: process.env.EMAIL_USER,
@@ -34,73 +34,65 @@ const transporter = nodemailer.createTransporter({
     }
 });
 
-// Form handler
+// Test transporter on startup
+transporter.verify((error, success) => {
+    if (error) {
+        console.log('❌ Email setup failed:', error.message);
+    } else {
+        console.log('✅ Email ready!');
+    }
+});
+
+// Form endpoint
 app.post('/api/intake', upload.single('file'), async (req, res) => {
     try {
         const { name, email, phone, service, message } = req.body;
-        const fileInfo = req.file ? req.file.filename : null;
-
-        // 1️⃣ ADMIN EMAIL (You receive this)
+        
+        // Admin email (YOU receive)
         const adminEmail = {
             from: `"ProDocs" <${process.env.EMAIL_USER}>`,
             to: process.env.ADMIN_EMAIL,
             replyTo: email,
             subject: `🆕 New ${service} Request - ${name}`,
             html: `
-                <div style="font-family: Arial; max-width: 600px;">
-                    <h2>📥 New Client Request</h2>
-                    <table style="width: 100%; border-collapse: collapse;">
-                        <tr><td><strong>Name:</strong></td><td>${name}</td></tr>
-                        <tr><td><strong>Email:</strong></td><td>${email}</td></tr>
-                        <tr><td><strong>Phone:</strong></td><td>${phone}</td></tr>
-                        <tr><td><strong>Service:</strong></td><td>${service}</td></tr>
-                        ${message ? `<tr><td><strong>Message:</strong></td><td>${message}</td></tr>` : ''}
-                        ${fileInfo ? `<tr><td><strong>File:</strong></td><td>${fileInfo}</td></tr>` : ''}
-                    </table>
-                    <hr>
-                    <p><em>Reply to this email to contact client directly</em></p>
-                </div>
+                <h2>📥 New Client Request</h2>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Phone:</strong> ${phone}</p>
+                <p><strong>Service:</strong> ${service}</p>
+                ${message ? `<p><strong>Message:</strong> ${message}</p>` : ''}
             `
         };
 
-        // 2️⃣ CLIENT CONFIRMATION
+        // Client confirmation
         const clientEmail = {
-            from: `"ProDocs Compliance" <${process.env.EMAIL_USER}>`,
+            from: `"ProDocs" <${process.env.EMAIL_USER}>`,
             to: email,
-            subject: '✅ Quote Request Received - ProDocs',
+            subject: '✅ ProDocs Quote Request Received',
             html: `
-                <div style="font-family: Arial; max-width: 500px;">
-                    <h2>🎉 Thank You ${name}!</h2>
-                    <p>Your <strong>${service}</strong> request has been received.</p>
-                    <p><strong>⏰ Next Steps:</strong></p>
-                    <ul>
-                        <li>📞 We'll call you within <strong>24 hours</strong></li>
-                        <li>💰 Free quote prepared</li>
-                        <li>🚀 Fast processing guaranteed</li>
-                    </ul>
-                    <p>Best,<br><strong>ProDocs Team</strong></p>
-                </div>
+                <h2>Thank You ${name}!</h2>
+                <p>Your ${service} request received.</p>
+                <p>Response within 24 hours.</p>
             `
         };
 
-        // Send emails
         await Promise.all([
             transporter.sendMail(adminEmail),
             transporter.sendMail(clientEmail)
         ]);
 
-        console.log(`✅ EMAILS SENT: ${name} (${service})`);
+        console.log(`✅ SENT: ${name} → ${service}`);
+        res.json({ success: true, message: '✅ Emails sent!' });
 
-        res.json({ success: true, message: '✅ Request sent! Check your email.' });
     } catch (error) {
-        console.error('❌ Email Error:', error.message);
-        res.status(500).json({ success: false, message: 'Server error' });
+        console.error('❌ Error:', error.message);
+        res.status(500).json({ success: false, message: error.message });
     }
 });
 
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public/index.html')));
-app.get('/health', (req, res) => res.json({ status: 'OK' }));
+app.get('/health', (req, res) => res.json({ status: 'OK', email: 'ready' }));
 
 app.listen(PORT, () => {
-    console.log(`🚀 ProDocs running: http://localhost:${PORT}`);
+    console.log(`🚀 http://localhost:${PORT}`);
 });
